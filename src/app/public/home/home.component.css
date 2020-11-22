@@ -1,0 +1,27 @@
+.home-carousel img {
+    display: block;
+    width: 100%;
+    max-height: 600px;
+}
+
+.border-gray {
+    border: 1px solid#cecece;
+    background-color: #F5F0EB;
+    height: 150px;
+}
+
+.title {
+    font-size: .938em!important;
+    color:#240480;
+    font-weight: 900;
+}
+
+p {
+    line-height: 1.375em;
+}
+
+a.preto {
+    color: #000;
+    font-weight: 700;
+    text-decoration: none;
+}

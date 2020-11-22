@@ -1,0 +1,122 @@
+<div class="container box-shadow p-4">
+    <div class="row animation-fade">
+
+        <div class="col text-center">
+            <h3 style="color: #626262">CADASTRO</h3>
+        </div>
+
+        <div class="mt-4 col-md-12">
+            <form [formGroup]="form">
+                <div class="row">
+                    <div class="col-md-3 text-right d-flex justify-content-end">
+                        <label class="control-label required" for="cpf-register">CPF</label>
+                    </div>
+                    <div class="col-md-4">
+                        <ua-input-container>
+                            <input mask="000.000.000-00" maxlength="14" type="text" name="CPF" id="cpf-register"
+                                class="form-control" formControlName="cpf">
+                        </ua-input-container>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 text-right d-flex justify-content-end">
+                        <label class="control-label required" for="nome-register">Nome</label>
+                    </div>
+                    <div class="col-md-6">
+                        <ua-input-container>
+                            <input type="text" name="Nome" id="nome-register" class="form-control" formControlName="nome">
+                        </ua-input-container>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 text-right d-flex justify-content-end">
+                        <label class="control-label required" for="email-register">E-mail</label>
+                    </div>
+                    <div class="col-md-6">
+                        <ua-input-container>
+                            <input type="text" name="E-mail" id="email-register" class="form-control"
+                                formControlName="email">
+                        </ua-input-container>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 text-right d-flex justify-content-end">
+                        <label class="control-label required" for="telefone-register">Telefone</label>
+                    </div>
+                    <div class="col-md-4">
+                        <ua-input-container>
+                            <input appTelefone maxlength="15" type="text" name="Telefone" id="telefone-register"
+                                class="form-control" formControlName="telefone">
+                        </ua-input-container>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 text-right d-flex justify-content-end">
+                        <label class="control-label required" for="cep-register">CEP</label>
+                    </div>
+                    <div class="col-md-3">
+                        <ua-input-container>
+                            <input mask="00000-000" maxlength="9" type="text" name="CEP" id="cep-register" class="form-control"
+                                formControlName="cep">
+                        </ua-input-container>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="http://www.buscacep.correios.com.br/sistemas/buscacep/default.cfm" target="_blank"> Não
+                            lembra o
+                            CEP?</a>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-3 text-right d-flex justify-content-end">
+                        <label class="control-label required" for="numero-register">Número</label>
+                    </div>
+                    <div class="col-md-3">
+                        <ua-input-container>
+                            <input type="text" name="Número" number-only type="number" id="numero-register"
+                                class="form-control" formControlName="numero">
+                        </ua-input-container>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 text-right d-flex justify-content-end">
+                        <label class="control-label required" for="rua-register">Rua</label>
+                    </div>
+                    <div class="col-md-6">
+                        <ua-input-container>
+                            <input type="text" name="Rua" id="rua-register" class="form-control" formControlName="rua">
+                        </ua-input-container>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 text-right d-flex justify-content-end">
+                        <label class="control-label required" for="bairro-register">Bairro</label>
+                    </div>
+                    <div class="col-md-6">
+                        <ua-input-container>
+                            <input type="text" name="Bairro" id="bairro-register" class="form-control"
+                                formControlName="bairro">
+                        </ua-input-container>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 text-right d-flex justify-content-end">
+                        <label class="control-label required" for="cidade-register">Cidade</label>
+                    </div>
+                    <div class="col-md-6">
+                        <ua-input-container>
+                            <input type="text" name="Cidade" id="cidade-register" class="form-control"
+                                formControlName="cidade">
+                        </ua-input-container>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col d-flex justify-content-end">
+                        <button id="btn-cancelar-register" class="btn btn-secondary">Cancelar</button>
+                        <button id="btn-salvar-register" type="button" class="btn btn-success ml-1">Salvar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

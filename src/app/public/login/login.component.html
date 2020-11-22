@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="animation-fade mt-5">
+
+        <h3 class="text-center" style="color: #626262">LOGIN</h3>
+
+        <br>
+
+        <form [formGroup]="form" class="form">
+
+            <input type="text" class="form-control" maxlength="18" name="Email" placeholder="E-mail" id="email-login" formControlName="email">
+
+            <input type="password" class="form-control" placeholder="Senha" name="Senha" id="senha-login" formControlName="password">
+
+            <br>
+
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">Entrar</button>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="line"></div>
+                </div>
+                <div class="col-md-2">
+                    OU
+                </div>
+                <div class="col-md-5">
+                    <div class="line"></div>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <button type="submit" class="btn btn-secondary btn-lg btn-block" routerLink="/public/register">Cadastre-se</button>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+</div>

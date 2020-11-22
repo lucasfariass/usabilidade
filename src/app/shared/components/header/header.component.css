@@ -1,0 +1,64 @@
+header .main-nav {
+    height: 100px;
+    background-color: #fff;
+    -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,.2);
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.2);
+    z-index: 9000;
+
+    position: relative;
+    top: 0px;
+    z-index: 9000;
+}
+
+.main-nav .logo-site {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+}
+
+header .main-nav .login-nav {
+    height: 83px;
+    padding-left: 10px;
+    margin: 17px 0 0 25px;
+    border-left: 1px solid #ccc;
+}
+
+header .main-nav .login-nav .links-login {
+    margin-top: 10px;
+    font-size: .625em;
+    color: #666;
+}
+
+header .main-nav .login-nav .links-login a {
+    color: #666;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+header .main-nav .partners {
+    margin: 18px 0;
+}
+
+.fa-user-circle {
+    font-size: 27px;
+}
+
+header .navbar .navbar-default {
+    top: -8px;
+    right: -18px;
+    min-height: auto;
+    height: 43px;
+    background-color: transparent!important;
+    border: none!important;
+    margin-bottom: 0;
+}
+
+h3 span {
+    color:#240480;
+    font-weight: 900;
+}
+
+.nav-link {
+    color: #666;
+}

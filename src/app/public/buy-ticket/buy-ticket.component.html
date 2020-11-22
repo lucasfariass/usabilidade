@@ -1,0 +1,195 @@
+<div class="container box-shadow p-3">
+    <form [formGroup]="form">
+        <div class="btn-group btn-group-sm btn-group-toggle mb-3">
+            <label class="btn btn-outline-secondary" [ngClass]="{'active': tipoPassagem === 'IDA_VOLTA'}">
+                <input type="radio" name="tipo" value="IDA_VOLTA" class="custom-radio" formControlName="tipo"> ida e
+                volta
+            </label>
+            <label class="btn btn-outline-secondary" [ngClass]="{'active': tipoPassagem === 'IDA'}">
+                <input type="radio" name="tipo" value="IDA" class="custom-radio" formControlName="tipo"> somente ida
+            </label>
+            <label class="btn btn-outline-secondary" [ngClass]="{'active': tipoPassagem === 'MULTI'}">
+                <input type="radio" name="tipo" value="MULTI" class="custom-radio" formControlName="tipo"> multitrechos
+            </label>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label class="control-label" for="local-saida">Saindo de:</label>
+                <ua-input-container>
+                    <select class="form-control" id="local-saida" formControlName="localSaida">
+                        <option>Campina Grande - PB</option>
+                    </select>
+                </ua-input-container>
+            </div>
+            <div class="col-md-6">
+                <label class="control-label" for="local-destino">Chegando em:</label>
+                <ua-input-container>
+                    <select class="form-control" id="local-destino" formControlName="localDestino">
+                        <option>São Paulo - SP</option>
+                    </select>
+                </ua-input-container>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label class="control-label" for="data-partida">Data de partida:</label>
+                <ua-input-container>
+                    <input bsDatepicker [bsConfig]="{ isAnimated: true, adaptivePosition: true, useUtc: true }"
+                        type="text" id="data-partida" class="form-control" formControlName="dataPartida" readonly>
+                </ua-input-container>
+            </div>
+            <div *ngIf="tipoPassagem === 'IDA_VOLTA'" class="col-md-6">
+                <label class="control-label" for="data-retorno">Data de retorno:</label>
+                <ua-input-container>
+                    <input bsDatepicker [bsConfig]="{ isAnimated: true, adaptivePosition: true, useUtc: true }"
+                        type="text" id="data-retorno" class="form-control" formControlName="dataChegada" readonly>
+                </ua-input-container>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <label class="control-label mr-2" for="data-retorno">Adulto(s):</label>
+                <div class="btn-group" role="group" aria-label="First group">
+                    <button type="button" class="btn btn-outline-secondary">-</button>
+                    <button type="button" class="btn btn-secondary">2</button>
+                    <button type="button" class="btn btn-outline-secondary">+</button>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <label class="control-label mr-2" for="data-retorno">Criança(s):</label>
+                <div class="btn-group" role="group" aria-label="First group">
+                    <button type="button" class="btn btn-outline-secondary">-</button>
+                    <button type="button" class="btn btn-secondary">2</button>
+                    <button type="button" class="btn btn-outline-secondary">+</button>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <label class="control-label mr-2" for="data-retorno">Bebê(s):</label>
+                <div class="btn-group" role="group" aria-label="First group">
+                    <button type="button" class="btn btn-outline-secondary">-</button>
+                    <button type="button" class="btn btn-secondary">2</button>
+                    <button type="button" class="btn btn-outline-secondary">+</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col d-flex justify-content-end">
+                <button id="btn-filtrar-passagens" type="button" class="btn btn-success">Buscar passagens</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<div class="container box-shadow mt-5">
+    <div class="row">
+        <div class="col d-flex justify-content-end mt-3">
+            <button id="btn-filtrar-passagens" type="button" class="btn btn-success" routerLink="/private/payment">Prosseguir</button>
+        </div>
+    </div>
+    <div class="row pr-4 pl-4 pt-4">
+        <div class="col-md-6">
+            <h5>IDA <span><i class="fas fa-ellipsis-h mr-2"></i><i class="fas fa-plane"></i></span></h5>
+        </div>
+        <div class="col-md-6">
+            <h5>VOLTA <span><i class="fas fa-ellipsis-h mr-2"></i><i class="fas fa-plane"></i></span></h5>
+        </div>
+    </div>
+    <div class="row pr-4 pl-4 pb-4">
+        <ng-container *ngFor="let combo of passagens">
+            <div class="col-md-6">
+
+                <div class="border-ticket p-2">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <p>
+                                Voo {{combo?.ida?.numero}} <br>
+                                <small><a>{{combo?.ida?.conexoes}}</a></small>
+                            </p>
+                            <p>Duração: <strong>{{combo?.ida?.duracao}}</strong></p>
+                        </div>
+                        <div class="col-md-3 details text-center">
+                            <div class="row d-flex justify-content-center">
+                                <div class="departure">
+                                    <h5>{{combo?.ida?.horarioSaida}}</h5>
+                                    <p>{{combo?.ida?.aeroSaida}}</p>
+                                </div>
+                                <i class="fas fa-angle-right p-1"></i>
+                                <div class="departure">
+                                    <h5>{{combo?.ida?.horarioChegada}}</h5>
+                                    <p>{{combo?.ida?.aeroChegada}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <small class="col">{{combo?.ida?.data}}</small>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <p class="logo text-center"><span>Union</span>Premium</p>
+                            <div class="border-ticket p-2 text-center align-middle"
+                                [ngClass]="{'ativado': combo?.ida?.selecionadoPremium}" role="button"
+                                (click)="selecionarPassagem(combo?.ida, true)">
+                                <p class="m-0 p-0">{{combo?.ida?.precoPremium}}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <p class="logo text-center"><span>Union</span></p>
+                            <div class="border-ticket p-2 text-center align-middle"
+                                [ngClass]="{'ativado': combo?.ida?.selecionadoUnion}" role="button"
+                                (click)="selecionarPassagem(combo?.ida, false)">
+                                <p class="m-0 p-0">{{combo?.ida?.precoUnion}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+
+                <div class="border-ticket p-2">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <p>
+                                Voo {{combo?.volta?.numero}}<br>
+                                <small><a>{{combo?.volta?.conexoes}}</a></small>
+                            </p>
+                            <p>Duração: <strong>{{combo?.volta?.duracao}}</strong></p>
+                        </div>
+                        <div class="col-md-3 details text-center">
+                            <div class="row d-flex justify-content-center">
+                                <div class="departure">
+                                    <h5>{{combo?.volta?.horarioSaida}}</h5>
+                                    <p>{{combo?.volta?.aeroSaida}}</p>
+                                </div>
+                                <i class="fas fa-angle-right p-1"></i>
+                                <div class="departure">
+                                    <h5>{{combo?.volta?.horarioChegada}}</h5>
+                                    <p>{{combo?.volta?.aeroChegada}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <small class="col">{{combo?.volta?.data}}</small>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <p class="logo text-center"><span>Union</span>Premium</p>
+                            <div class="border-ticket p-2 text-center align-middle"
+                                [ngClass]="{'ativado': combo?.volta?.selecionadoPremium}" role="button"
+                                (click)="selecionarPassagem(combo?.volta, true)">
+                                <p class="m-0 p-0">{{combo?.volta?.precoPremium}}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <p class="logo text-center"><span>Union</span></p>
+                            <div class="border-ticket p-2 text-center align-middle"
+                                [ngClass]="{'ativado': combo?.volta?.selecionadoUnion}" role="button"
+                                (click)="selecionarPassagem(combo?.volta, false)">
+                                <p class="m-0 p-0">{{combo?.volta?.precoUnion}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+
+</div>

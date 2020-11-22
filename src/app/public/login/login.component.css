@@ -1,0 +1,29 @@
+.form {
+    box-shadow: 0 14px 24px 0 rgba(0, 0, 0, .19), 0 5px 8px 0 rgba(0, 0, 0, .24);
+    width: 340px;
+    opacity: .97;
+    padding: 35px 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    margin: 0 auto;
+}
+
+.line {
+    background-color: #999;
+    height: 3px;
+    overflow: hidden;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.btn-light {
+    border: groove;
+}
+
+.btn-light:hover {
+    border: groove;
+}
+
+.ajuste-imput-group {
+    padding: 0px;
+}
