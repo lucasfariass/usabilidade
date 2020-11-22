@@ -4,6 +4,7 @@ import { HeaderComponent } from './header/header.component';
 import { RouterModule } from '@angular/router';
 import { FooterComponent } from './footer/footer.component';
 import { InputContainerComponent } from './input-container/input-container.component';
+import { ModalConfirmationComponent } from './modal-confirmation/modal-confirmation.component';
 
 
 
@@ -11,12 +12,14 @@ import { InputContainerComponent } from './input-container/input-container.compo
   declarations: [
     HeaderComponent,
     FooterComponent,
-    InputContainerComponent
+    InputContainerComponent,
+    ModalConfirmationComponent
   ],
   exports: [
     HeaderComponent,
     FooterComponent,
-    InputContainerComponent
+    InputContainerComponent,
+    ModalConfirmationComponent
   ],
   imports: [
     CommonModule,

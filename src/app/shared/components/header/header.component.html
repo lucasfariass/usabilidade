@@ -10,7 +10,7 @@
                         </div>
                         <nav class="col-xs-10 navbar navbar-expand-lg pull-right">
                             <ul class="navbar-nav mr-auto">
-                                <li class="nav-item dropdown">
+                                <li class="nav-item dropdown" *ngIf="usuarioLogado()">
                                     <a class="nav-link dropdown-toggle" id="navbar-sua-viagem" role="button"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Sua viagem
@@ -37,9 +37,14 @@
                                 <span class="fas fa-user-circle" role="button"></span>
                             </li>
                             <li class="links-login">
-                                <a role="button" routerLink="/public/login">Fazer login</a>
-                                <br>
-                                <a role="button" routerLink="/public/register">Cadastrar</a>
+                                <ng-container *ngIf="!usuarioLogado() else logoutTemplate">
+                                    <a role="button" routerLink="/public/login">Fazer login</a>
+                                    <br>
+                                    <a role="button" routerLink="/public/register">Cadastrar</a>
+                                </ng-container>
+                                <ng-template #logoutTemplate>
+                                    <a role="button" (click)="logout()">Sair</a>
+                                </ng-template>
                             </li>
                         </ul>
 

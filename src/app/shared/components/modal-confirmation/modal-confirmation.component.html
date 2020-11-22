@@ -1,0 +1,10 @@
+<div class="modal-header">
+    <h4>Confirmação</h4>
+</div>
+<div class="modal-body text-center">
+    <p [innerHTML]="mensagem"></p>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="close()">Não</button>
+    <button type="button" class="btn btn-success" (click)="confirm()">Sim</button>
+</div>

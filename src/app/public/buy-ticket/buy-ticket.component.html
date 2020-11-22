@@ -50,41 +50,42 @@
             <div class="col-md-2">
                 <label class="control-label mr-2" for="data-retorno">Adulto(s):</label>
                 <div class="btn-group" role="group" aria-label="First group">
-                    <button type="button" class="btn btn-outline-secondary">-</button>
-                    <button type="button" class="btn btn-secondary">2</button>
-                    <button type="button" class="btn btn-outline-secondary">+</button>
+                    <button type="button" class="btn btn-outline-secondary" (click)="atualizarValor('adultos', false)">-</button>
+                    <button type="button" class="btn btn-secondary">{{form.get('adultos').value}}</button>
+                    <button type="button" class="btn btn-outline-secondary" (click)="atualizarValor('adultos', true)">+</button>
                 </div>
             </div>
             <div class="col-md-2">
                 <label class="control-label mr-2" for="data-retorno">Criança(s):</label>
                 <div class="btn-group" role="group" aria-label="First group">
-                    <button type="button" class="btn btn-outline-secondary">-</button>
-                    <button type="button" class="btn btn-secondary">2</button>
-                    <button type="button" class="btn btn-outline-secondary">+</button>
+                    <button type="button" class="btn btn-outline-secondary" (click)="atualizarValor('criancas', false)">-</button>
+                    <button type="button" class="btn btn-secondary">{{form.get('criancas').value}}</button>
+                    <button type="button" class="btn btn-outline-secondary" (click)="atualizarValor('criancas', true)">+</button>
                 </div>
             </div>
             <div class="col-md-2">
                 <label class="control-label mr-2" for="data-retorno">Bebê(s):</label>
                 <div class="btn-group" role="group" aria-label="First group">
-                    <button type="button" class="btn btn-outline-secondary">-</button>
-                    <button type="button" class="btn btn-secondary">2</button>
-                    <button type="button" class="btn btn-outline-secondary">+</button>
+                    <button type="button" class="btn btn-outline-secondary" (click)="atualizarValor('bebes', false)">-</button>
+                    <button type="button" class="btn btn-secondary">{{form.get('bebes').value}}</button>
+                    <button type="button" class="btn btn-outline-secondary" (click)="atualizarValor('bebes', true)">+</button>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col d-flex justify-content-end">
-                <button id="btn-filtrar-passagens" type="button" class="btn btn-success">Buscar passagens</button>
+                <button id="btn-filtrar-passagens" type="button" class="btn btn-success" (click)="exibirReultados = true">Buscar passagens</button>
             </div>
         </div>
     </form>
 </div>
 
 
-<div class="container box-shadow mt-5">
+<div *ngIf="exibirReultados" class="container box-shadow mt-5">
     <div class="row">
         <div class="col d-flex justify-content-end mt-3">
-            <button id="btn-filtrar-passagens" type="button" class="btn btn-success" routerLink="/private/payment">Prosseguir</button>
+            <button id="btn-filtrar-passagens" type="button" class="btn btn-sm btn-success mr-2" (click)="fazerReserva()">Efetuar reserva</button>
+            <button id="btn-filtrar-passagens" type="button" class="btn btn-sm btn-success" routerLink="/private/payment">Comprar</button>
         </div>
     </div>
     <div class="row pr-4 pl-4 pt-4">

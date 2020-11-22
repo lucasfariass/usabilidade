@@ -11,6 +11,7 @@ import { NgxMaskModule } from 'ngx-mask';
 import { ComponentsModule } from '../shared/components/components.module';
 import { BuyTicketComponent } from './buy-ticket/buy-ticket.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
     CarouselModule.forRoot(),
     NgxMaskModule.forRoot(),
     BsDatepickerModule.forRoot(),
+    ModalModule.forRoot(),
     ReactiveFormsModule,
     FormsModule,
     ComponentsModule

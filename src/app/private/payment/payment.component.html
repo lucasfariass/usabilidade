@@ -1,1 +1,110 @@
-<p>payment works!</p>
+<div class="container box-shadow">
+    <div class="row pt-3">
+        <div class="col text-center">
+            <h3 style="color: #626262">CONFIRMAR COMPRA</h3>
+        </div>
+    </div>
+    <div class="row p-3">
+        <form [formGroup]="form" class="col-md-7">
+            <div class="row">
+                <div class="col-md-3 text-right d-flex justify-content-end">
+                    <label class="control-label required" for="tipo-pagamento">Tipo pagamento</label>
+                </div>
+                <div class="col-md-9">
+                    <div class="form-check form-check-inline">
+                        <p class="form-check-label">
+                            <ua-input-container>
+                                <input class="form-check-input" type="radio" name="tipoPagamento" id="tipo-pagamento" value="CARTAO"
+                                    formControlName="tipoPagamento">Cartão de credito
+                                <input class="form-check-input ml-3" type="radio" name="tipoPagamento" id="tipo-pagamento" value="BOLETO"
+                                    formControlName="tipoPagamento">Boleto
+                            </ua-input-container>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <ng-container *ngIf="form.get('tipoPagamento').value === 'CARTAO'">
+                <div class="row">
+                    <div class="col-md-3 text-right d-flex justify-content-end">
+                        <label class="control-label required" for="numero-cartao">Numero</label>
+                    </div>
+                    <div class="col-md-9">
+                        <ua-input-container>
+                            <input mask="0000 0000 0000 0000" maxlength="19" type="text" name="Numero" id="numero-cartao"
+                                class="form-control" formControlName="numeroCartao">
+                        </ua-input-container>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 text-right d-flex justify-content-end">
+                        <label class="control-label required" for="titular">Titular</label>
+                    </div>
+                    <div class="col-md-9">
+                        <ua-input-container>
+                            <input type="text" name="Nome" id="titular" class="form-control" formControlName="titular">
+                        </ua-input-container>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 text-right d-flex justify-content-end">
+                        <label class="control-label required" for="validade">Validade</label>
+                    </div>
+                    <div class="col-md-4">
+                        <ua-input-container>
+                            <input mask="00/0000" maxlength="7" type="text" name="Validade" id="validade"
+                                class="form-control" formControlName="validade">
+                        </ua-input-container>
+                    </div>
+                    <div class="col-md-2 text-right d-flex justify-content-end">
+                        <label class="control-label required" for="codigo-seguranca">CVV</label>
+                    </div>
+                    <div class="col-md-3">
+                        <ua-input-container>
+                            <input type="text" maxlength="3" name="Código seguranca" id="codigo-seguranca"
+                                class="form-control" formControlName="codigoSeguranca">
+                        </ua-input-container>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 text-right d-flex justify-content-end">
+                        <label class="control-label required" for="parcelas">Parcelas</label>
+                    </div>
+                    <div class="col-md-4">
+                        <ua-input-container>
+                            <select class="form-control" id="parcelas" formControlName="parcelas">
+                                <option>1 x 2.266,68 sem juros</option>
+                                <option>2 x 1.133,34 sem juros</option>
+                                <option>3 x 755,56 sem juros</option>
+                                <option>4 x 566,67 sem juros</option>
+                            </select>
+                        </ua-input-container>
+                    </div>
+                </div>
+            </ng-container>
+        </form>
+        <div class="col-md-5 line-left">
+            <p><strong>Detalhes do pedido:</strong></p>
+            <div class="row line-bottom detalhes">
+                <div class="col-md-6">
+                    <p>1x</p>
+                </div>
+                <div class="col-md-6">
+                    <p class="logo text-right">Passagem <span>Union</span>Premium</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <p><strong>TOTAL:</strong></p>
+                </div>
+                <div class="col-md-6">
+                    <p class="logo text-right">R$ 2.266,68</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row p-3">
+        <div class="col d-flex justify-content-end mt-3">
+            <button id="btn-filtrar-passagens" type="button" class="btn btn-success" (click)="confirmarPagamento()">{{form.get('tipoPagamento').value === 'BOLETO' ? 'Imprimir boleto' : 'Confirmar'}}</button>
+        </div>
+    </div>
+</div>

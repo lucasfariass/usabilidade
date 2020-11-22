@@ -41,11 +41,22 @@
                 </div>
                 <div class="row">
                     <div class="col-md-3 text-right d-flex justify-content-end">
+                        <label class="control-label required" for="senha-register">Senha</label>
+                    </div>
+                    <div class="col-md-6">
+                        <ua-input-container>
+                            <input type="password" name="E-mail" id="senha-register" class="form-control"
+                                formControlName="senha">
+                        </ua-input-container>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 text-right d-flex justify-content-end">
                         <label class="control-label required" for="telefone-register">Telefone</label>
                     </div>
                     <div class="col-md-4">
                         <ua-input-container>
-                            <input appTelefone maxlength="15" type="text" name="Telefone" id="telefone-register"
+                            <input mask="(00) 00000-0000" maxlength="15" type="text" name="Telefone" id="telefone-register"
                                 class="form-control" formControlName="telefone">
                         </ua-input-container>
                     </div>
@@ -112,8 +123,8 @@
 
                 <div class="row">
                     <div class="col d-flex justify-content-end">
-                        <button id="btn-cancelar-register" class="btn btn-secondary">Cancelar</button>
-                        <button id="btn-salvar-register" type="button" class="btn btn-success ml-1">Salvar</button>
+                        <button id="btn-cancelar-register" class="btn btn-secondary" routerLink="/public/home">Cancelar</button>
+                        <button id="btn-salvar-register" type="button" class="btn btn-success ml-1" (click)="salvar()">Salvar</button>
                     </div>
                 </div>
             </form>

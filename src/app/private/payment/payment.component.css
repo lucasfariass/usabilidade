@@ -1,0 +1,20 @@
+.line-left {
+    border-left: 1px solid#cecece;;
+}
+
+.line-bottom {
+    border-bottom: 1px solid#cecece;;
+}
+
+.detalhes {
+    min-height: 150px;
+}
+
+.logo {
+    font-size: 12px;
+}
+
+.logo span {
+    color:#240480;
+    font-weight: 900;
+}
