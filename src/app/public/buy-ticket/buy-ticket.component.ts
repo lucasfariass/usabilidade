@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { ToastrService } from 'ngx-toastr';
 import { distinctUntilChanged } from 'rxjs/operators';
+import { AuthService } from 'src/app/core/auth/auth.service';
 import { ModalConfirmationComponent } from 'src/app/shared/components/modal-confirmation/modal-confirmation.component';
 import { CardTicketModel, ComboTicketsModel } from './models/tickets.model';
 
@@ -19,7 +21,7 @@ export class BuyTicketComponent implements OnInit {
   passagens: ComboTicketsModel[];
   exibirReultados = false;
 
-  constructor(private fb: FormBuilder, private bsDatepickerConfig: BsDatepickerConfig, private modalService: BsModalService, private toastrService: ToastrService) {
+  constructor(private fb: FormBuilder, private bsDatepickerConfig: BsDatepickerConfig, private modalService: BsModalService, private toastrService: ToastrService, private authService: AuthService, private router: Router) {
     this.bsDatepickerConfig.dateInputFormat = 'DD/MM/YYYY'
     this.bsDatepickerConfig.containerClass = 'theme-blue'
   }
@@ -29,7 +31,7 @@ export class BuyTicketComponent implements OnInit {
     this.mock();
   }
 
-  
+
   private createForm() {
     this.form = this.fb.group({
       tipo: [null],
@@ -85,6 +87,14 @@ export class BuyTicketComponent implements OnInit {
       this.toastrService.success('Reserva efetuada com sucesso!');
       this.exibirReultados = false;
     });
+  }
+
+  public comprar() {
+    if (this.authService.getUsuario()) {
+      this.router.navigate(['/private/payment']);
+    } else {
+      this.router.navigate(['/public/login']);
+    }
   }
 
   private mock() {
